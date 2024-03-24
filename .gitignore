@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/Festivise/Festivise.Events.Api/obj
+/src/Festivise/Festivise.Events.Api.Contracts/obj
+/src/Festivise/Festivise.Events.Domain/obj
+/src/Festivise/.vs/Festivise
+/.vs
