@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Festivise.Events.Api.Contracts.Enums;
 
 namespace Festivise.Events.Domain.Models
 {
@@ -24,7 +20,7 @@ namespace Festivise.Events.Domain.Models
         public DateTime EndTime { get; set; }
 
 
-        public string Venue { get; set; }
+        public VenueEnum Venue { get; set; }
 
 
         public List<Act>? Acts { get; set; }
