@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Festivise.Events.Domain.Models
 {
-    internal class Act
+    public class Act
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

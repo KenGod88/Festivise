@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Festivise.Events.Domain.Models
 {
-    internal class Event
+    public class Event
     {
+        
         public Guid Id { get; set; }
 
 
@@ -26,6 +27,6 @@ namespace Festivise.Events.Domain.Models
         public string Venue { get; set; }
 
 
-        public List<Act> Acts { get; set; }
+        public List<Act>? Acts { get; set; }
     }
 }

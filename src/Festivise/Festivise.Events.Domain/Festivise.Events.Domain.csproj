@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Festivise.Events.Api\Festivise.Events.Api.csproj" />
+  </ItemGroup>
+
 </Project>
