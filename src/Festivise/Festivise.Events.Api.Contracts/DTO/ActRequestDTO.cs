@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Festivise.Events.Api.Contracts.DTO
 {
-    internal class ActRequestDTO
+    public class ActRequestDTO
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
