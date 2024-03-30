@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Festivise.Events.Api.Contracts\Festivise.Events.Api.Contracts.csproj" />
+    <ProjectReference Include="..\Festivise.Events.Domain\Festivise.Events.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
