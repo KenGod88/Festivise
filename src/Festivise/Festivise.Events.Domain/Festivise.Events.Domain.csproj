@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Festivise.Events.Api\Festivise.Events.Api.csproj" />
+    <ProjectReference Include="..\Festivise.Events.Api.Contracts\Festivise.Events.Api.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
