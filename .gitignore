@@ -7,3 +7,10 @@
 /src/Festivise/Festivise.Events.Domain/obj
 /src/Festivise/.vs/Festivise
 /.vs
+/src/Festivise/.vs/ProjectEvaluation
+/src/Festivise/Festivise.Events.Api.Contracts/bin/Debug/net8.0
+/src/Festivise/Festivise.Events.Api/bin/Debug/net8.0
+/src/Festivise/Festivise.Events.Domain/bin/Debug/net8.0
+/src/Festivise/Festivise.Events.Storage/bin/Debug/net8.0
+/src/Festivise/Festivise.Events.Storage/Migrations
+/src/Festivise/Festivise.Events.Storage/obj
