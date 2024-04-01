@@ -15,6 +15,6 @@ namespace Festivise.Events.Api.Contracts.DTO
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public VenueEnum Venue { get; set; }
-        public List<ActRequestDTO> Acts { get; set; }
+        public List<ActResponseDTO> Acts { get; set; }
     }
 }
