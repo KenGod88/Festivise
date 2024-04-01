@@ -15,10 +15,10 @@ namespace Festivise.Events.Api.Controllers
             _eventService = eventService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<EventRequestDTO>> GetEvent(Guid id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<EventRequestDTO>> GetEventAsync(Guid id)
         {
-            var eventResponseDTO = await _eventService.GetEvent(id);
+            var eventResponseDTO = await _eventService.GetEventAsync(id);
 
             if (eventResponseDTO == null)
             {
@@ -29,11 +29,11 @@ namespace Festivise.Events.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<EventRequestDTO>> CreateEvent(EventRequestDTO eventRequestDTO)
+        public async Task<ActionResult<EventRequestDTO>> CreateEventAsync(EventRequestDTO eventRequestDTO)
         {
-            var eventResponseDTO = await _eventService.CreateEvent(eventRequestDTO);
+            var eventResponseDTO = await _eventService.CreateEventAsync(eventRequestDTO);
 
-            return CreatedAtAction(nameof(GetEvent), new { id = eventResponseDTO.Id }, eventResponseDTO);
+            return CreatedAtAction(nameof(GetEventAsync), new { id = eventResponseDTO.Id }, eventResponseDTO);
         }
     }
 }

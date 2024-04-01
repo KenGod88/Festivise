@@ -19,6 +19,8 @@ namespace Festivise.Events.Api.Extensions
             };
         }
 
+
+
         public static Act MapToAct(this ActRequestDTO actRequestDTO)
         {
             return new Act
@@ -34,6 +36,37 @@ namespace Festivise.Events.Api.Extensions
         {
             if (actRequestDTOs == null) return new List<Act>();
             return actRequestDTOs.Select(dto => dto.MapToAct()).ToList();
+        }
+
+        public static EventResponseDTO MapToEventResponseDTO(this Event eventModel)
+               {
+            return new EventResponseDTO
+            {
+                Id = eventModel.Id,
+                Name = eventModel.Name,
+                Description = eventModel.Description,
+                StartTime = eventModel.StartTime,
+                EndTime = eventModel.EndTime,
+                Venue = eventModel.Venue,
+                Acts = eventModel.Acts.MapToActResponseDTOs()
+            };
+        }
+
+        public static ActResponseDTO MapToActResponseDTO(this Act actModel)
+        {
+            return new ActResponseDTO
+            {
+                Id = actModel.Id,
+                Name = actModel.Name,
+                Duration = actModel.Duration
+            };
+            
+        }
+
+        public static List<ActResponseDTO> MapToActResponseDTOs(this IEnumerable<Act> actModels)
+        {
+            if (actModels == null) return new List<ActResponseDTO>();
+            return actModels.Select(model => model.MapToActResponseDTO()).ToList();
         }
     }
 }
