@@ -15,3 +15,4 @@
 /src/Festivise/Festivise.Events.Storage/Migrations
 /src/Festivise/Festivise.Events.Storage/obj
 /src/Festivise/Festivise.Events.Api/appsettings.json
+/src/Festivise/Festivise.Events.Api/appsettings.Development.json
