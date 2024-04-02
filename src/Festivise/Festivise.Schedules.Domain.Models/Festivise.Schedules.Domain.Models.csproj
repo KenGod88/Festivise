@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="QuestPDF" Version="2023.12.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Festivise.Events.Domain\Festivise.Events.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
