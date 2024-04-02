@@ -35,9 +35,11 @@ namespace Festivise.Events.Storage
         public async Task<Event> GetEventAsync(Guid id)
         {
 
-            var Event = await _dbcontext.Events.FindAsync(id);
+            var eventModel = await _dbcontext.Events.FindAsync(id);
+            var acts = _dbcontext.Acts.Where(a => a.EventId == id).ToList();
+            eventModel.Acts = acts;
            
-            return Event;
+            return eventModel;
             
         }
     }
