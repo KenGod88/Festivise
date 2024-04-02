@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Festivise.Schedules.Storage.Contracts\Festivise.Schedules.Storage.Contracts.csproj" />
+    <ProjectReference Include="..\Festivise.Events.Domain\Festivise.Events.Domain.csproj" />
   </ItemGroup>
 
 </Project>

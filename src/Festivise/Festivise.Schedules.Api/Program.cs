@@ -1,4 +1,4 @@
-using QuestPDF.Infrastructure;
+
 
 namespace Festivise.Schedules.Api
 
@@ -9,7 +9,7 @@ namespace Festivise.Schedules.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            QuestPDF.Settings.License = LicenseType.Community;
+            
 
             var app = builder.Build();
 

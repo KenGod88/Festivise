@@ -8,7 +8,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Festivise.Events.Api\Festivise.Events.Api.csproj" />
-    <ProjectReference Include="..\Festivise.Schedules.Domain\Festivise.Schedules.Domain.csproj" />
+    <ProjectReference Include="..\Festivise.Schedules.Api.Contracts\Festivise.Schedules.Api.Contracts.csproj" />
+    <ProjectReference Include="..\Festivise.Schedules.Storage.Contracts\Festivise.Schedules.Storage.Contracts.csproj" />
+    <ProjectReference Include="..\Festivise.Schedules.Storage\Festivise.Schedules.Storage.csproj" />
   </ItemGroup>
 
 </Project>
