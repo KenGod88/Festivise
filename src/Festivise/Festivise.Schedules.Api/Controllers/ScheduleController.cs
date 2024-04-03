@@ -9,10 +9,12 @@ using System.Text.Json.Serialization;
 
 namespace Festivise.Schedules.Api.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ScheduleController : Controller
     {
         private readonly IScheduleService _scheduleService;
-        private readonly IEventService _eventService;
+        
 
         public ScheduleController(IScheduleService scheduleService)
         {

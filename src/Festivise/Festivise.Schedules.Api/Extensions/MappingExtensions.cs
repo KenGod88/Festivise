@@ -22,10 +22,8 @@ namespace Festivise.Schedules.Api.Extensions
         {
             return new ScheduleModel
             {
-                EventName = request.EventName,
                 EventId = request.EventId,
-                Acts = request.Acts,
-                EventVenue = request.EventVenue,
+
                 UserId = request.UserId
             };
         }

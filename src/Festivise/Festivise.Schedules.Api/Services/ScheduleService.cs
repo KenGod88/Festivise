@@ -13,7 +13,13 @@ namespace Festivise.Schedules.Api.Services
     public class ScheduleService : IScheduleService
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly ScheduleRepository _scheduleRepository;
+        private readonly IScheduleRepository _scheduleRepository;
+
+        public ScheduleService(IHttpClientFactory httpClientFactory, IScheduleRepository scheduleRepository)
+        {
+            _httpClientFactory = httpClientFactory;
+            _scheduleRepository = scheduleRepository;
+        }
 
         public async Task<ScheduleResponseDto> CreateScheduleAsync(ScheduleRequestDto request)
         {

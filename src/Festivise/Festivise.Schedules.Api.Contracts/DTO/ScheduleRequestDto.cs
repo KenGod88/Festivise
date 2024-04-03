@@ -9,10 +9,10 @@ namespace Festivise.Schedules.Api.Contracts.DTO
 {
     public class ScheduleRequestDto
     {
-        public string EventName { get; set; }
+        
         public Guid EventId { get; set; }
-        public List<Act> Acts { get; set; }
-        public string EventVenue { get; set; }
+        
+       
         public string UserId { get; set; }
     }
 }

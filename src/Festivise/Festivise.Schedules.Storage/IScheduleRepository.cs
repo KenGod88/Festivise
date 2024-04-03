@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Festivise.Schedules.Storage
 {
-    internal interface IScheduleRepository
+    public interface IScheduleRepository
     {
         Task<ScheduleModel> CreateScheduleAsync(ScheduleModel schedule);
         Task<ScheduleModel> GetScheduleAsync(string id);
