@@ -1,4 +1,4 @@
-﻿using Festivise.Events.Api.Contracts.Enums;
+﻿using Festivise.Events.Storage.Contracts;
 
 namespace Festivise.Events.Api.Contracts.DTO
 {
@@ -22,7 +22,7 @@ namespace Festivise.Events.Api.Contracts.DTO
         public VenueEnum Venue { get; set; }
 
         
-        public List<ActRequestDTO> Acts { get; set; }
+        public List<ActModel> Acts { get; set; }
 
         
        

@@ -11,8 +11,6 @@ namespace Festivise.Events.Api
     {
         public static void Main(string[] args)
         {
-
-           
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllers().AddJsonOptions(opt =>
@@ -23,14 +21,17 @@ namespace Festivise.Events.Api
                 options.SuppressAsyncSuffixInActionNames = false;
             });
 
+            builder.Services.AddControllers()
+            .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                });
+
             builder.Services.AddScoped<IEventRepository, EventRepository>();
             builder.Services.AddScoped<IEventService, EventService>();
 
-
             builder.Services.AddDbContext<FestiviseContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetSection("EventRepositoryOptions:ConnectionString").Value));
-
-
 
             var app = builder.Build();
 

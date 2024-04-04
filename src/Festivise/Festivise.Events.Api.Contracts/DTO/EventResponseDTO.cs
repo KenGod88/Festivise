@@ -1,9 +1,4 @@
-﻿using Festivise.Events.Api.Contracts.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Festivise.Events.Storage.Contracts;
 
 namespace Festivise.Events.Api.Contracts.DTO
 {
@@ -15,6 +10,6 @@ namespace Festivise.Events.Api.Contracts.DTO
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public VenueEnum Venue { get; set; }
-        public List<ActResponseDTO> Acts { get; set; }
+        public List<ActModel> Acts { get; set; }
     }
 }

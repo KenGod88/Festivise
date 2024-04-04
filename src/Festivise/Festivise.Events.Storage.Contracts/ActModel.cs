@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Festivise.Events.Api.Contracts.DTO
+namespace Festivise.Events.Storage.Contracts
 {
-    public class ActRequestDTO
+    public class ActModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
         public TimeSpan Duration { get; set; }
+
+        public Guid EventId { get; set; }
+        
     }
 }

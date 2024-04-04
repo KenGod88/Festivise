@@ -1,12 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Festivise.Events.Domain.Models;
-using Microsoft.Extensions.Options;
-using Festivise.Events.Storage.Options;
+﻿using Festivise.Events.Storage.Contracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Festivise.Events.Storage.Context
 {
@@ -16,13 +9,20 @@ namespace Festivise.Events.Storage.Context
         {
         }
 
-        public DbSet<Domain.Models.Event> Events { get; set; }
-        public DbSet<Domain.Models.Act> Acts { get; set; }
+        public DbSet<EventModel> Events { get; set; }
+        public DbSet<ActModel> Acts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Domain.Models.Event>().HasKey(e => e.Id);
-            modelBuilder.Entity<Domain.Models.Act>().HasKey(a => a.Id);
+            modelBuilder.Entity<EventModel>().HasKey(e => e.Id);
+            modelBuilder.Entity<ActModel>().HasKey(a => a.Id);
+
+            
+            modelBuilder.Entity<EventModel>()
+                .HasMany(e => e.Acts) 
+                .WithOne() 
+                .HasForeignKey(a => a.EventId) 
+                .OnDelete(DeleteBehavior.Cascade); 
         }
     }
 }

@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Festivise.Events.Api.Contracts\Festivise.Events.Api.Contracts.csproj" />
-    <ProjectReference Include="..\Festivise.Events.Domain\Festivise.Events.Domain.csproj" />
     <ProjectReference Include="..\Festivise.Events.Storage\Festivise.Events.Storage.csproj" />
   </ItemGroup>
 

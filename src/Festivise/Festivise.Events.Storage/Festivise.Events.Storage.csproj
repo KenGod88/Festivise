@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Festivise.Events.Domain\Festivise.Events.Domain.csproj" />
+    <ProjectReference Include="..\Festivise.Events.Storage.Contracts\Festivise.Events.Storage.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
