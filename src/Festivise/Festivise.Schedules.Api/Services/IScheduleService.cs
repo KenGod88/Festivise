@@ -1,4 +1,5 @@
 ﻿using Festivise.Schedules.Api.Contracts.DTO;
+using Festivise.Schedules.Storage.Contracts;
 
 namespace Festivise.Schedules.Api.Services
 {

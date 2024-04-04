@@ -9,7 +9,7 @@ namespace Festivise.Schedules.Api.Extensions
         {
             return new ScheduleResponseDto
             {
-                Id = schedule.Id,
+                Id = schedule.id,
                 EventName = schedule.EventName,
                 EventId = schedule.EventId,
                 Acts = schedule.Acts,

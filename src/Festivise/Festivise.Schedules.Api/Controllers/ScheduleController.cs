@@ -1,11 +1,6 @@
-﻿using Festivise.Events.Api.Contracts.DTO;
-using Festivise.Events.Api.Services;
-using Festivise.Events.Domain.Models;
-using Festivise.Schedules.Api.Contracts.DTO;
+﻿using Festivise.Schedules.Api.Contracts.DTO;
 using Festivise.Schedules.Api.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Festivise.Schedules.Api.Controllers
 {

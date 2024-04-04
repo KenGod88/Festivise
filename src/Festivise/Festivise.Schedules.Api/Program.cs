@@ -21,6 +21,10 @@ namespace Festivise.Schedules.Api
                 options.SuppressAsyncSuffixInActionNames = false;
             });
 
+            builder.Services.Configure<ScheduleRepositoryOptions>(
+                    builder.Configuration.GetSection(
+                        key: nameof(ScheduleRepositoryOptions)));
+
             builder.Services.AddHttpClient();
 
             builder.Services.AddScoped<IScheduleService, ScheduleService>();

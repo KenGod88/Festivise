@@ -1,12 +1,10 @@
-﻿using Festivise.Events.Api.Contracts.DTO;
-using Festivise.Events.Domain.Models;
+﻿using Festivise.Events.Storage.Contracts;
 using Festivise.Schedules.Api.Contracts.DTO;
-using System.Net.Http;
-using System.Text.Json.Serialization;
-using System.Text.Json;
-using Festivise.Schedules.Storage.Contracts;
-using Festivise.Schedules.Storage;
 using Festivise.Schedules.Api.Extensions;
+using Festivise.Schedules.Storage;
+using Festivise.Schedules.Storage.Contracts;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Festivise.Schedules.Api.Services
 {
@@ -28,7 +26,7 @@ namespace Festivise.Schedules.Api.Services
             options.PropertyNameCaseInsensitive = true;
             options.Converters.Add(new JsonStringEnumConverter());
 
-            var eventresponse = await client.GetFromJsonAsync<Event>($"https://localhost:7172/api/events/{request.EventId}", options);
+            var eventresponse = await client.GetFromJsonAsync<EventModel>($"https://localhost:7172/api/events/{request.EventId}", options);
 
             var model = new ScheduleModel
             {
