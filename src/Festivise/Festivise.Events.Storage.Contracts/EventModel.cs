@@ -1,10 +1,7 @@
-﻿using Festivise.Events.Api.Contracts.Enums;
-
-namespace Festivise.Events.Domain.Models
+﻿namespace Festivise.Events.Storage.Contracts
 {
-    public class Event
+    public class EventModel
     {
-        
         public Guid Id { get; set; }
 
 
@@ -23,6 +20,6 @@ namespace Festivise.Events.Domain.Models
         public VenueEnum Venue { get; set; }
 
 
-        public List<Act>? Acts { get; set; }
+        public List<ActModel> Acts { get; set; }
     }
 }

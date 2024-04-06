@@ -1,10 +1,5 @@
-﻿using Festivise.Events.Domain.Models;
-using Festivise.Events.Storage.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Festivise.Events.Storage.Context;
+using Festivise.Events.Storage.Contracts;
 
 namespace Festivise.Events.Storage
 {
@@ -17,7 +12,7 @@ namespace Festivise.Events.Storage
             _dbcontext = context;
         }
 
-        public async Task<Event> CreateEventAsync(Event eventToAdd)
+        public async Task<EventModel> CreateEventAsync(EventModel eventToAdd)
         {
             try
             {
@@ -32,7 +27,7 @@ namespace Festivise.Events.Storage
             
         }
 
-        public async Task<Event> GetEventAsync(Guid id)
+        public async Task<EventModel> GetEventAsync(Guid id)
         {
 
             var eventModel = await _dbcontext.Events.FindAsync(id);
