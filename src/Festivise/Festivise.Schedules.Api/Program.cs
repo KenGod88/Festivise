@@ -4,6 +4,7 @@ using Festivise.Schedules.Api.Services;
 using System.Text.Json.Serialization;
 using Festivise.Schedules.Storage;
 using System.Text.Json;
+using NSwag;
 
 namespace Festivise.Schedules.Api
 
@@ -36,12 +37,31 @@ namespace Festivise.Schedules.Api
             builder.Services.AddScoped<IScheduleService, ScheduleService>();
             builder.Services.AddScoped<IScheduleRepository, ScheduleRepository>();
 
+            builder.Services.AddOpenApiDocument(options => {
+                options.PostProcess = document =>
+                {
+                    document.Info = new OpenApiInfo
+                    {
+                        Title = "Festivise/Schedules Api",
+                        Description = "Festivise Api for event and schedule creation",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Ken Godfroid",
+                            Email = "Ken.godfroid@hogent.be"
+                        }
+                    };
+                };
+            });
+
 
 
             var app = builder.Build();
             app.MapControllers();
 
-            
+            app.UseOpenApi();
+            app.UseSwaggerUi();
+
+
 
             app.Run();
         }
