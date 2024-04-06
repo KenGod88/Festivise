@@ -20,6 +20,6 @@
         public VenueEnum Venue { get; set; }
 
 
-        public List<ActModel>? Acts { get; set; }
+        public List<ActModel> Acts { get; set; }
     }
 }

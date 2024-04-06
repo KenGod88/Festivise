@@ -3,6 +3,7 @@
 using Festivise.Schedules.Api.Services;
 using System.Text.Json.Serialization;
 using Festivise.Schedules.Storage;
+using System.Text.Json;
 
 namespace Festivise.Schedules.Api
 
@@ -20,6 +21,11 @@ namespace Festivise.Schedules.Api
             {
                 options.SuppressAsyncSuffixInActionNames = false;
             });
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true 
+            };
 
             builder.Services.Configure<ScheduleRepositoryOptions>(
                     builder.Configuration.GetSection(
