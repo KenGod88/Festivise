@@ -26,8 +26,8 @@ namespace Festivise.Schedules.Api.Controllers
             
         }
 
-        [HttpGet]
-        public async Task<ActionResult<ScheduleResponseDto>> GetSchedule([FromQuery] string id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ScheduleResponseDto>> GetSchedule(string id)
         {
             var schedule = await _scheduleService.GetScheduleAsync(id);
             

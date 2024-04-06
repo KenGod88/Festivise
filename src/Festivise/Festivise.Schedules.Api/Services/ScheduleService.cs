@@ -28,11 +28,13 @@ namespace Festivise.Schedules.Api.Services
 
             var eventresponse = await client.GetFromJsonAsync<EventModel>($"https://localhost:7172/api/events/{request.EventId}", options);
 
+            var selectedActs = eventresponse.Acts.Where(a => request.ActIds.Contains(a.Id)).OrderBy(a => a.StartTime).ToList();
+
             var model = new ScheduleModel
             {
                 EventName = eventresponse.Name,
                 EventId = eventresponse.Id,
-                Acts = eventresponse.Acts,
+                Acts = selectedActs,
                 EventVenue = eventresponse.Venue.ToString(),
                 UserId = request.UserId,
             };

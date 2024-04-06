@@ -9,5 +9,8 @@ namespace Festivise.Schedules.Api.Contracts.DTO
 
         [Required]
         public string? UserId { get; set; }
+
+        [Required]
+        public List<Guid> ActIds { get; set; } = new List<Guid>();
     }
 }
