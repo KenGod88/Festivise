@@ -1,11 +1,13 @@
 ﻿using Festivise.Schedules.Api.Contracts.DTO;
 using Festivise.Schedules.Api.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace Festivise.Schedules.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableRateLimiting("festiviseSchedulesFixed")]
     public class ScheduleController : Controller
     {
         private readonly IScheduleService _scheduleService;

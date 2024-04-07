@@ -5,6 +5,8 @@ using System.Text.Json.Serialization;
 using Festivise.Schedules.Storage;
 using System.Text.Json;
 using NSwag;
+using Microsoft.AspNetCore.RateLimiting;
+using System.Threading.RateLimiting;
 
 namespace Festivise.Schedules.Api
 
@@ -37,6 +39,14 @@ namespace Festivise.Schedules.Api
             builder.Services.AddScoped<IScheduleService, ScheduleService>();
             builder.Services.AddScoped<IScheduleRepository, ScheduleRepository>();
 
+            builder.Services.AddRateLimiter(l => l.AddFixedWindowLimiter(policyName: "festiviseSchedulesFixed", options =>
+            {
+                options.PermitLimit = 3;
+                options.Window = TimeSpan.FromSeconds(10);
+                options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+                options.QueueLimit = 0;
+            }));
+
             builder.Services.AddOpenApiDocument(options => {
                 options.PostProcess = document =>
                 {
@@ -60,6 +70,7 @@ namespace Festivise.Schedules.Api
 
             app.UseOpenApi();
             app.UseSwaggerUi();
+            app.UseRateLimiter();
 
 
 

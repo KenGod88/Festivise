@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using NSwag;
+using Microsoft.AspNetCore.RateLimiting;
+using System.Threading.RateLimiting;
 
 namespace Festivise.Events.Api
 
@@ -45,6 +47,14 @@ namespace Festivise.Events.Api
                 };
             });
 
+            builder.Services.AddRateLimiter(l => l.AddFixedWindowLimiter(policyName: "festiviseEventFixed", options =>
+            {
+                options.PermitLimit = 3;
+                options.Window = TimeSpan.FromSeconds(10);
+                options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+                options.QueueLimit = 0;
+            }));
+
 
             builder.Services.AddScoped<IEventRepository, EventRepository>();
             builder.Services.AddScoped<IEventService, EventService>();
@@ -59,6 +69,7 @@ namespace Festivise.Events.Api
             app.MapControllers();
             app.UseOpenApi();
             app.UseSwaggerUi();
+            app.UseRateLimiter();
 
             app.Run();
         }
