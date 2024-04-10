@@ -7,12 +7,14 @@ namespace Festivise.Events.Api.Services
     public class EventService : IEventService
     {
         private readonly IEventRepository _eventRepository;
+        private readonly IPosterRepository _posterRepository;
         
         
 
-        public EventService(IEventRepository eventRepository)
+        public EventService(IEventRepository eventRepository, IPosterRepository posterRepository)
         {
             _eventRepository = eventRepository;
+            _posterRepository = posterRepository;
             
         }
 
@@ -37,6 +39,10 @@ namespace Festivise.Events.Api.Services
             var createdEvent = await _eventRepository.CreateEventAsync(eventEntity);
 
             EventResponseDTO created = createdEvent.MapToEventResponseDTO();
+
+            var poster = await _posterRepository.GenerateEventPosterAsync(created);
+
+            created.PosterImgUrl = poster;
 
             return created;
         }

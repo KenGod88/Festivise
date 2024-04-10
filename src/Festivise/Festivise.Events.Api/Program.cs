@@ -55,13 +55,22 @@ namespace Festivise.Events.Api
                 options.QueueLimit = 0;
             }));
 
+            builder.Services.AddHttpClient();
+
 
             builder.Services.AddScoped<IEventRepository, EventRepository>();
             builder.Services.AddScoped<IEventService, EventService>();
+            builder.Services.AddScoped<IPosterRepository, PosterRepository>();
 
-           
+            builder.Services.Configure<PosterRepositoryOptions>(
+                    builder.Configuration.GetSection(
+                        key: nameof(PosterRepositoryOptions)));
+
+
             builder.Services.AddDbContext<FestiviseContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetSection("EventRepositoryOptions:ConnectionString").Value));
+
+            
 
 
             var app = builder.Build();

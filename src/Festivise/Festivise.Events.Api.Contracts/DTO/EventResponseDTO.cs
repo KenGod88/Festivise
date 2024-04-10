@@ -11,5 +11,7 @@ namespace Festivise.Events.Api.Contracts.DTO
         public DateTime EndTime { get; set; }
         public VenueEnum Venue { get; set; }
         public List<ActModel> Acts { get; set; }
+
+        public string PosterImgUrl { get; set; }
     }
 }
